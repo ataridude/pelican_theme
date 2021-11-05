@@ -1,0 +1,19 @@
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h4>
+<ul class="list-unstyled category-links">
+{% for cat, null in categories %}
+  <li><a href="{{ SITEURL }}/{{ cat.url }}" >
+    <i class="fa fa-folder-open fa-fw fa-lg"></i> {{ cat }}</a>
+
+        {% if CATEGORY_FEED_ATOM and SHOW_CATEGORY_FEEDS_IN_SIDEBAR %}
+        <a href="{{ FEED_DOMAIN }}/feeds/{{ cat.slug }}.atom.xml" type="application/atom+xml" rel="alternate">
+            <span style="font-size: 80%">
+                [<span class="fa fa-rss fa-fw"></span>feed ]
+            </span>
+        </a>
+        {% endif %}
+
+  </li>
+{% endfor %}
+</ul>
+</div>
